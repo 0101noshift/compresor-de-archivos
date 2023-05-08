@@ -1,8 +1,13 @@
 from PIL import Image
 import os
+from tkinter import *
+from tkinter import filedialog
 
-downloadsFolder = "/Users/SNOOPY/Downloads/"
-picturesFolder = "/Users/SNOOPY/Pictures/"
+downloadsFolder = filedialog.askdirectory()
+picturesFolder = filedialog.askdirectory()
+
+root = Tk()
+
 
 if __name__ == "__main__":
     for filename in os.listdir(downloadsFolder):
@@ -18,3 +23,5 @@ if __name__ == "__main__":
             musicFolder = "/Users/SNOOPY/Music/"
             os.rename(downloadsFolder + filename, musicFolder + filename)
             print(name + ": " + extension)
+
+root.mainloop()
